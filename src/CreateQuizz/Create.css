@@ -33,3 +33,15 @@
     min-width:45%;
     padding:5px;
 }
+.button1{
+    cursor:pointer;
+    background-color:white;
+    font-size:medium;
+    border:2px solid #FF7418;
+    margin:2px;
+    color:#FF7418;
+    padding:5px;
+    padding-left:2vw;
+    padding-right:2vw;
+
+}
