@@ -13,13 +13,13 @@ const Create = () => {
 
     function notify(status) {
         if (status === 200) {
-            toast.success('Quizz Added Successfully\n\v remember!! your data would be erased after 6 hrs');
+            toast.success('Quiz Added Successfully\nRemember! Your data will be erased after 6 hours');
         }
-        else if (status == 404) {
-            toast.warning('QuizzID Already Found Try Different');
-        }
+        else if (status === 404) {
+            toast.warning('Quiz ID Already Found, Try Different');
+        } 
         else {
-            toast.error("Can't Add Try Again");
+            toast.error("Can't Add, Try Again");
         }
     }
 
@@ -37,9 +37,17 @@ const Create = () => {
             method: "POST",
             data: { quizzId: quizzname, email: login.email, ques: ques }
         })
-            .then(res => { console.log("Data is Saved"); notify(res.status) })
+            .then(res => { 
+                console.log("Data is Saved", res); 
+                notify(res.status); 
+            })
             .catch(err => {
-                try { console.log(err, "Something went wrong"); notify(err.response.status) } catch (err) { notify(500) }
+                console.log("Error: ", err);
+                if (err.response) {
+                    notify(err.response.status);
+                } else {
+                    notify(500);
+                }
             });
     };
 
@@ -97,7 +105,7 @@ const Create = () => {
                     <button type="button" className="button" style={{ justifySelf: 'center' }} onClick={sendQuizzDetails}>Submit</button>
                 </div>
                 <div className="noOfQuestion1">
-                    <h2>Set QuizzName</h2>
+                    <h2>Set Quiz Name</h2>
                     <input type="text" onChange={(e) => setQuizzName(e.target.value)} />
                 </div>
                 {quizzQuestions()}
@@ -113,15 +121,14 @@ const ShowOptions = ({ questionIndex, optionIndex, optionValue, handleOptionsCha
             <div className="formCheck">
                 <input
                     type="checkbox"
-                    id={`option-${optionIndex}-${questionIndex}`}  //adding questionIndex
+                    id={`option-${optionIndex}-${questionIndex}`}
                     checked={isChecked}
                     onChange={() => handleAnswerCheckboxChange(questionIndex, optionValue)}
                     style={{ minWidth: '50px' }}
                 />
-                {console.log(questionIndex + "   " + optionIndex)}
                 <input
                     type="text"
-                    value={optionValue} // added value binding
+                    value={optionValue}
                     onChange={(e) => handleOptionsChange(questionIndex, optionIndex, e.target.value)}
                     style={{ minWidth: '100%', maxWidth: '100%', alignSelf: 'center', justifySelf: 'center' }}
                 />
@@ -144,7 +151,7 @@ const Question = ({ index, question, handleQuestionChange, handleOptionsChange, 
     const optionList = () => {
         return question.QuizzOptions.slice(0, options).map((optionValue, optionIndex) => (
             <ShowOptions
-                key={optionIndex}
+                key={`${index}-${optionIndex}`}
                 questionIndex={index}
                 optionIndex={optionIndex}
                 optionValue={optionValue}
@@ -169,13 +176,13 @@ const Question = ({ index, question, handleQuestionChange, handleOptionsChange, 
             <p>&#x28;Max 4&#x29;</p>
             <button
                 type="button"
-                disabled={(options == 4)}
+                disabled={options === 4}
                 onClick={() => setOptions(options + 1)}
                 className="button1 fa-solid fa-plus"
             ></button>
             <button
                 type="button"
-                disabled={(options == 1)}
+                disabled={options === 1}
                 onClick={() => setOptions(options - 1)}
                 className="button1 fa-solid fa-minus"
             ></button>
