@@ -52,7 +52,7 @@ const Login = () => {
     const[loading,setLoading]=useState(false);
     function retrivepassword(email){
         axios({
-            url:"http://localhost:8010/forgot",
+            url:"https://aspirenexlogin.onrender.com/forgot",
             method:"POST",
             data:{email:email},
         }).then(res=>{sendEmail(email,res.data.password);notify(201)}).catch(err=>{console.log("Somthing Wrong");notify(err.response.status)});
@@ -79,7 +79,7 @@ const Login = () => {
     }
     function loggingIn(){
         axios({
-            url:"http://localhost:8010/login",
+            url:"https://aspirenexlogin.onrender.com/login",
             method:"POST",
             data:{email:document.getElementById("email").value,password:document.getElementById("password").value}
         }).then(async res=>{await setLogin(res.data);notify(res.status)}).catch(err=>{try{console.log(err,"Loggin Error");notify(err.response.status)}catch(err){notify(500)}});
