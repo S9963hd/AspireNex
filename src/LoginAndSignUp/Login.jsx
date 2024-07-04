@@ -21,8 +21,7 @@ const Login = () => {
         }).then(res=>{sendEmail(email,res.data.password);notify(201)}).catch(err=>{console.log("Something Wrong");notify(err.response.status)});
     }
 
-const sendEmail = async ( email,password) => {
-    emailjs.init("9iY9SjsWlSQiP-Huk");
+const sendEmail = async (email, password) => {
     const userId = '9iY9SjsWlSQiP-Huk';
     const serviceID = 'service_dr4pjjf';
     const templateID = 'template_1mbn28y';
@@ -36,14 +35,28 @@ const sendEmail = async ( email,password) => {
         from_email: 'sanjaysoman46@gmail.com'
     };
 
-     emailjs.send(serviceID, templateID, params, accessToken)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            alert('Email sent successfully!');
-        }, function(error) {
-            console.log('FAILED...', error);
-            alert('Failed to send email. Please try again.');
+    const url = `https://api.emailjs.com/api/v1.0/email/send`;
+
+    const data = {
+        service_id: serviceID,
+        template_id: templateID,
+        user_id: userId,
+        template_params: templateParams,
+        accessToken: accessToken
+    };
+
+    try {
+        const response = await axios.post(url, data, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
+        console.log('Email sent:', response.data);
+        return true;
+    } catch (error) {
+        console.error('Failed to send email:', error.response ? error.response.data : error.message);
+        return false;
+    }
 };
 
     
