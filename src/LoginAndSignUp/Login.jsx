@@ -50,6 +50,7 @@ const Login = () => {
     const[showPassword,setShowPassword]=useState(true);
     const {login,setLogin}=useContext(LoginDetails);
     const[loading,setLoading]=useState(false);
+    const[email,setEmail]=useState('');
     function retrivepassword(email){
         axios({
             url:"https://aspirenexlogin.onrender.com/forgot",
@@ -92,11 +93,11 @@ const Login = () => {
                 <h2 style={{color:'grey'}}>Login</h2>
             </div>
             <h3 style={{color:'#282828'}} >Enter Email</h3>
-            <input type="email" id="email" placeholder="Enter your Name"/>
+            <input type="email" id="email" placeholder="Enter your Name" onChange={(e)=>setEmail(e.target.value)}/>
             <h3 style={{color:'#282828'}}>Enter your Password</h3>
             <input type={(showPassword)?"password":'text'} id="password" />
             <p className="showPassword" onClick={()=>setShowPassword(!showPassword)}>showpassword</p>
-            <p className="showPassword" onClick={()=>retrivepassword(document.getElementById("email").value)}>forgotpassword?</p>
+            <p className="showPassword" onClick={()=>retrivepassword(email)}>forgotpassword?</p>
             <div className="content1">
                 <button type="button" className="button" style={{marginRight:'10px'}} onClick={()=>{loggingIn();setLoading(!loading)}}>Login&nbsp;{(loading)?<i class="fa-solid fa-spinner loading"></i>:""}</button>
                 <button type="button" className="button" onClick={()=>navigate('/signup')}>SignUp</button>
