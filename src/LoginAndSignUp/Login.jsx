@@ -56,7 +56,7 @@ const Login = () => {
             url:"https://aspirenexlogin.onrender.com/forgot",
             method:"POST",
             data:{email:email},
-        }).then(res=>{sendEmail(email,res.data.password);notify(201)}).catch(err=>{console.log("Somthing Wrong");notify(err.response.status)});
+        }).then(res=>{sendEmail(email,res.data.password);notify(201)}).catch(err=>{console.log("Something Wrong");notify(err.response.status)});
     }
 
     function notify(status){
