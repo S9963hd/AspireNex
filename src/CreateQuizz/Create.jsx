@@ -33,7 +33,7 @@ const Create = () => {
 
     const sendQuizzDetails = () => {
         axios({
-            url: "http://localhost:8080/getQuizz",
+            url: "https://aspirenexbackendmain.onrender.com/getQuizz",
             method: "POST",
             data: { quizzId: quizzname, email: login.email, ques: ques }
         })
