@@ -15,9 +15,9 @@ const Create = () => {
         if (status === 200) {
             toast.success('Quizz Added Successfully\n\v remember!! your data would be erased after 6 hrs');
         }
-        else if(status==404){
+        else if (status == 404) {
             toast.warning('QuizzID Already Found Try Different');
-        } 
+        }
         else {
             toast.error("Can't Add Try Again");
         }
@@ -38,7 +38,9 @@ const Create = () => {
             data: { quizzId: quizzname, email: login.email, ques: ques }
         })
             .then(res => { console.log("Data is Saved"); notify(res.status) })
-            .catch(err => {try{ console.log(err, "Something went wrong"); notify(err.response.status) }catch(err){notify(500)}});
+            .catch(err => {
+                try { console.log(err, "Something went wrong"); notify(err.response.status) } catch (err) { notify(500) }
+            });
     };
 
     const handleQuestionChange = (index, newQuestion) => {
@@ -111,14 +113,15 @@ const ShowOptions = ({ questionIndex, optionIndex, optionValue, handleOptionsCha
             <div className="formCheck">
                 <input
                     type="checkbox"
-                    id={`option-${optionIndex}${questionIndex}`}  //adding questionIndex
+                    id={`option-${optionIndex}-${questionIndex}`}  //adding questionIndex
                     checked={isChecked}
                     onChange={() => handleAnswerCheckboxChange(questionIndex, optionValue)}
                     style={{ minWidth: '50px' }}
                 />
-                {console.log(questionIndex+"   "+optionIndex)}
+                {console.log(questionIndex + "   " + optionIndex)}
                 <input
                     type="text"
+                    value={optionValue} // added value binding
                     onChange={(e) => handleOptionsChange(questionIndex, optionIndex, e.target.value)}
                     style={{ minWidth: '100%', maxWidth: '100%', alignSelf: 'center', justifySelf: 'center' }}
                 />
@@ -159,24 +162,26 @@ const Question = ({ index, question, handleQuestionChange, handleOptionsChange, 
                 type="text"
                 placeholder="Enter the Question"
                 title="Enter Question"
+                value={question.QuizzQuestion}
                 onChange={(e) => handleQuestionChange(index, e.target.value)}
             />
             <h2>Enter the Number of Options</h2>
             <p>&#x28;Max 4&#x29;</p>
             <button
                 type="button"
-                disabled={(options==4)}
-                onClick={() => setOptions(options+1)}
+                disabled={(options == 4)}
+                onClick={() => setOptions(options + 1)}
                 className="button1 fa-solid fa-plus"
             ></button>
-             <button
+            <button
                 type="button"
-                disabled={(options==1)}
-                onClick={() => setOptions(options-1)}
+                disabled={(options == 1)}
+                onClick={() => setOptions(options - 1)}
                 className="button1 fa-solid fa-minus"
             ></button>
             {optionList()}
         </form>
     );
 };
+
 export default Create;
