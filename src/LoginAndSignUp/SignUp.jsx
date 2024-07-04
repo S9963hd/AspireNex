@@ -24,7 +24,7 @@ const SignUp = () => {
     }
     async function signingUp(){
         await axios({
-            url:"http://localhost:8010/signUp",
+            url:"https://aspirenexlogin.onrender.com/signUp",
             method:"POST",
             data:{email:document.getElementById("email").value,password:document.getElementById("password").value}
         }).then((res)=>notify(res.status)).catch(err=>{try{(err.response==undefined)?notify(500):notify(err.response.status)}catch(err){notify(500)}});
