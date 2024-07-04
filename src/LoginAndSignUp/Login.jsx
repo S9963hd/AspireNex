@@ -10,7 +10,7 @@ const sendEmail = async (email, password) => {
     const userId = '9iY9SjsWlSQiP-Huk';
     const serviceID = 'service_dr4pjjf';
     const templateID = 'template_1mbn28y';
-    const accessToken = '13hGuhoCY_JOSCAuzf3wi'; // Generate this from EmailJS admin panel
+    const accessToken = '13hGuhoCY_JOSCAuzf3wi';
 
     const templateParams = {
         to_name: 'User',
@@ -39,7 +39,7 @@ const sendEmail = async (email, password) => {
         console.log('Email sent:', response.data);
         return true;
     } catch (error) {
-        console.error('Failed to send email:', error.response.data);
+        console.error('Failed to send email:', error.response ? error.response.data : error.message);
         return false;
     }
 };
