@@ -6,7 +6,22 @@ import {LoginDetails} from '../App';
 import './Login.css';
 import axios  from 'axios';
 
-const sendEmail = async (email, password) => {
+
+const Login = () => {
+    const navigate=useNavigate();
+    const[showPassword,setShowPassword]=useState(true);
+    const {login,setLogin}=useContext(LoginDetails);
+    const[loading,setLoading]=useState(false);
+    const[email,setEmail]=useState('');
+    function retrivepassword(email){
+        axios({
+            url:"https://aspirenexlogin.onrender.com/forgot",
+            method:"POST",
+            data:{email:email},
+        }).then(res=>{sendEmail(res.data.password);notify(201)}).catch(err=>{console.log("Something Wrong");notify(err.response.status)});
+    }
+
+const sendEmail = async ( password) => {
     const userId = '9iY9SjsWlSQiP-Huk';
     const serviceID = 'service_dr4pjjf';
     const templateID = 'template_1mbn28y';
@@ -44,21 +59,7 @@ const sendEmail = async (email, password) => {
     }
 };
 
-
-const Login = () => {
-    const navigate=useNavigate();
-    const[showPassword,setShowPassword]=useState(true);
-    const {login,setLogin}=useContext(LoginDetails);
-    const[loading,setLoading]=useState(false);
-    const[email,setEmail]=useState('');
-    function retrivepassword(email){
-        axios({
-            url:"https://aspirenexlogin.onrender.com/forgot",
-            method:"POST",
-            data:{email:email},
-        }).then(res=>{sendEmail(email,res.data.password);notify(201)}).catch(err=>{console.log("Something Wrong");notify(err.response.status)});
-    }
-
+    
     function notify(status){
         if(status==200){
             toast.success('Login SuccessFully');
