@@ -25,14 +25,14 @@ const Join = () => {
   let resulting=async()=>{
     axios({
       method:"POST",
-      url:"http://localhost:8080/results",
+      url:"https://aspirenexbackendmain.onrender.com/results",
       data:{result:userAnswser,quizzId:quizzId}
     }).then(res=>{setUserResult(res.data.result);console.log(userResult)}).catch(err=>console.log(err));
   }
   let fetching=async ()=>{
     console.log(quizzId);
     await axios({
-      url:"http://localhost:8080/fetchQuizz",
+      url:"https://aspirenexbackendmain.onrender.com/fetchQuizz",
       method:"POST",
       data:{"quizzId":quizzId}
     }).then(res=>{setQuizzDetails([...res.data]);notify(res.status)}).catch(err=>{try{console.log(err,"Data Error\n\n");notify(err.response.status)}catch(err){notify(500)}});
@@ -67,7 +67,7 @@ function QuestionPlatform({ ques, index, setIndex, n, userAnswer, setUserAnswer 
     const updatedAnswers = [...userAnswer];
     const questionIndex = index; // Use the current index as the key for each question's answers
 
-    // Ensure the userAnswer array has enough space for all questions
+    // Ensuring the userAnswer array has enough space for all questions
     if (!updatedAnswers[questionIndex]) {
       updatedAnswers[questionIndex] = [];
     }
