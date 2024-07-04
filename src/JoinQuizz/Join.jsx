@@ -10,7 +10,6 @@ const Join = () => {
   const[index,setIndex]=useState(0);
   const[userAnswser,setUserAnswer]=useState([]);
   const[userResult,setUserResult]=useState(null);
-  const[loading,setLoading]=useState(false);
   function notify(status){
     console.log(status);
     if(status==200){
@@ -56,6 +55,7 @@ const Join = () => {
   )
 }
 function Model({setquizzId,fetching}){
+    const[loading,setLoading]=useState(false);
   return(
     <div className="Model">
       <div className="ModelBox">
