@@ -116,6 +116,7 @@ const ShowOptions = ({ questionIndex, optionIndex, optionValue, handleOptionsCha
                     onChange={() => handleAnswerCheckboxChange(questionIndex, optionValue)}
                     style={{ minWidth: '50px' }}
                 />
+                {console.log(questionIndex+"   "+optionIndex);}
                 <input
                     type="text"
                     onChange={(e) => handleOptionsChange(questionIndex, optionIndex, e.target.value)}
