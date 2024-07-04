@@ -10,16 +10,19 @@ const Create = () => {
     const [ques, setQues] = useState([]);
     const [quizzname, setQuizzName] = useState('');
     const { login } = useContext(LoginDetails);
-
+    const[loading,setLoading]=useState(false);
     function notify(status) {
         if (status === 200) {
             toast.success('Quiz Added Successfully\nRemember! Your data will be erased after 6 hours');
+            setLoading(false);
         }
         else if (status === 404) {
             toast.warning('Quiz ID Already Found, Try Different');
+            setLoading(false);
         } 
         else {
             toast.error("Can't Add, Try Again");
+            setLoading(false);
         }
     }
 
@@ -102,7 +105,7 @@ const Create = () => {
                         max={10}
                         required
                     />
-                    <button type="button" className="button" style={{ justifySelf: 'center' }} onClick={sendQuizzDetails}>Submit</button>
+                    <button type="button" className="button" style={{ justifySelf: 'center' }} onClick={()=>{setLoading(!loading);sendQuizzDetails()}}>Submit{(loading)?<i class="fa-solid fa-spinner loading"></i>:""}</button>
                 </div>
                 <div className="noOfQuestion1">
                     <h2>Set Quiz Name</h2>
