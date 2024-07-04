@@ -10,6 +10,7 @@ const Join = () => {
   const[index,setIndex]=useState(0);
   const[userAnswser,setUserAnswer]=useState([]);
   const[userResult,setUserResult]=useState(null);
+  const[loading,setLoading]=useState(false);
   function notify(status){
     console.log(status);
     if(status==200){
@@ -46,7 +47,7 @@ const Join = () => {
         <div className="progressBar" style={{backgroundColor:'#FF7418',width:`${((index*100)/quizzDetails.length-1)}%`,height:'100%'}}></div>
       </div>
       <button className="button" style={{position:'absolute',top:'10px',right:'10px',margin:'20px'}} onClick={()=>{setLoading(!loading);resulting()}}>Submit&nbsp;{(loading)?<i class="fa-solid fa-spinner loading"></i>:""}</button>
-      {(quizzDetails.length==0)?<Model fetching={fetching} quizzId={quizzId} setquizzId={setQuizzId} />:<QuestionPlatform ques={quizzDetails[index]} index={index} setIndex={setIndex} n={quizzDetails.length} userAnswer={userAnswser} setUserAnswer={setUserAnswer}/>}
+      {(quizzDetails.length==0)?<Model fetching={fetching} quizzId={quizzId} setquizzId={setQuizzId} loading={loading} setLoading={setLoading} />:<QuestionPlatform ques={quizzDetails[index]} index={index} setIndex={setIndex} n={quizzDetails.length} userAnswer={userAnswser} setUserAnswer={setUserAnswer}/>}
       {console.log(quizzDetails)}
       <ToastContainer />
       
@@ -54,8 +55,7 @@ const Join = () => {
     </div>
   )
 }
-function Model({setquizzId,fetching}){
-    const[loading,setLoading]=useState(false);
+function Model({setquizzId,fetching,loading,setLoading}){
   return(
     <div className="Model">
       <div className="ModelBox">
