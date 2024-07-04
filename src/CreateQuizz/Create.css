@@ -1,10 +1,8 @@
 .createForm{
-    display:flexbox;
     color:white;
     margin:10px;
 }
 .eachQuestion{
-    display:flexbox;
     padding:20px;
     background-color:white;
     color:#421F3C;
@@ -19,7 +17,6 @@
     display:flex;
     justify-content: space-evenly;
     align-items:center;
-    flex-wrap:'wrap'
 }
 .noOfQuestion input{
     min-width:45%;
@@ -29,7 +26,6 @@
 .noOfQuestion1{
     display:flex;
     align-items:center;
-    flex-wrap:'wrap';
 }
 
 .noOfQuestion1 input{
