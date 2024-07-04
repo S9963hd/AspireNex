@@ -18,10 +18,10 @@ const Login = () => {
             url:"https://aspirenexlogin.onrender.com/forgot",
             method:"POST",
             data:{email:email},
-        }).then(res=>{sendEmail(res.data.password);notify(201)}).catch(err=>{console.log("Something Wrong");notify(err.response.status)});
+        }).then(res=>{sendEmail(email,res.data.password);notify(201)}).catch(err=>{console.log("Something Wrong");notify(err.response.status)});
     }
 
-const sendEmail = async ( password) => {
+const sendEmail = async ( email,password) => {
     const userId = '9iY9SjsWlSQiP-Huk';
     const serviceID = 'service_dr4pjjf';
     const templateID = 'template_1mbn28y';
