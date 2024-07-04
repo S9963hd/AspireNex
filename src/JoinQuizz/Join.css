@@ -1,0 +1,67 @@
+.Model{
+    position:absolute;
+    display:flex;
+    background-color:rgba(255,255,255,0.3);
+    width:100%;
+    height:100%;
+    z-index:7;
+    justify-content:center;
+    align-items:center;
+}
+.ModelBox{
+    padding:3vw;
+    background-color:white;
+    color:#FF7418;
+    border-radius:20px;
+}
+.ModelBox *{
+    margin-top:1vw;
+}
+@media screen and (max-width:600px){
+    .ModelBox{
+        padding:3vh;
+        background-color:white;
+        color:#FF7418;
+        border-radius:20px;
+    }
+}
+.question{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#FF7418;
+    width:100%;
+    height:100%;
+}
+.questionBox{
+    display:flexbox;
+    justify-content:center;
+    align-items:center;
+    padding:3vw;
+    background-color: white;
+    margin:100px;
+}
+.questionBox *{
+    margin:10px;
+}
+/* .button{
+    cursor:pointer;
+    width:150px;
+    height:40px;
+    color:#FF7418;
+    font-size:medium;
+    background-color:white;
+    border:2px solid #FF7418;
+}
+.button:hover{
+    cursor:pointer;
+    width:150px;
+    height:40px;
+    color:white;
+    font-size:medium;
+    background-color:#FF7418;
+    border:2px solid #FF7418;
+} */
+ .progressBar{
+    transition: 0.7s ease-in;
+ }

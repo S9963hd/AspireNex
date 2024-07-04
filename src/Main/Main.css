@@ -1,0 +1,192 @@
+@font-face {
+    font-family: 'inno';
+    src: url("../../public/Fontspring-DEMO-integralcf-demibold.otf");
+}
+@font-face {
+    font-family: 'roboto';
+    src: url('../../public/Roboto-Black.ttf');
+}
+.navigation{
+    display:flex;
+    position:sticky;
+    top:0;
+    align-items: center;
+    justify-content:space-between;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    z-index:1;
+    background-color:white;
+}
+.navigation1{
+    display:flex;
+    align-items:center;
+}
+.navigation1 > .button{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.logo{
+    font-family:'inno';
+    font-size: xx-large;
+    font-weight:bolder;
+    color:#FF7418;
+}
+.button{
+    cursor:pointer;
+    width:150px;
+    height:40px;
+    color:#FF7418;
+    font-size:medium;
+    background-color:white;
+    border:2px solid #FF7418;
+}
+a{
+    display: block;
+    text-decoration:none;
+}
+.button:hover{
+    cursor:pointer;
+    width:150px;
+    height:40px;
+    color:white;
+    font-size:medium;
+    background-color:#FF7418;
+    border:2px solid #FF7418;
+}
+.dropDown{
+    position:absolute;
+    z-index:2;
+    margin-top:5px;
+    box-shadow: 0px 0px 5px grey;
+    background-color: white;
+}
+.dropDown a{
+    padding-left:20px;
+    padding-right:20px;
+    cursor:pointer;
+    background-color:white;
+    color:#FF7418;
+}
+.dropDown a:hover{
+    padding-left:20px;
+    padding-right:20px;
+    cursor:pointer;
+    color:white;
+    background-color:#FF7418;
+}
+/* MainContent */
+.Main1{
+    display:flex;
+    text-align: center;
+    justify-content:space-evenly;
+    align-items: center;
+    background-color:white;
+    color:#421F3C;
+}
+.Main1 >img{
+    width:30vw;
+    height:30vw;
+}
+.Intro{
+    font-size:60px;
+    font-family: sans-serif;
+    animation:1s glider ease-in-out;
+}
+.content1{
+    display:flex;
+    justify-content: space-evenly;
+    align-items:center;
+    font-size:22px;
+    text-align: center;
+    color:white;
+}
+.content1 *{
+    animation: 1s glider ease-in-out;
+}
+.content1 img{
+    height:300px;
+    width:400px;
+}
+@keyframes glider {
+    from {
+        opacity: 0;
+        margin-left:-20px;
+    }
+    to{
+        opacity: 1;
+        margin-left:0px;
+    }
+}
+.home-icon{
+    cursor:pointer;
+    position:fixed;
+    z-index:3;
+    color:white;
+    font-size: x-large;
+    padding:10px;
+    bottom:30px;
+    right:10px;
+    background-color:#FF7418;
+}
+.bottom{
+    display:flexbox;
+    text-align:center;
+    font-size:22px;
+    color:white;
+}
+.navigationMob{
+    display: none;
+}
+/* for Mobile Phones */
+@media screen and (max-width:1080px) {
+    .navigation1{
+        display:none;
+    }
+    .Main1 >img{
+        display:none;
+    }
+    .content1 img{
+       display:none;
+    }
+    .navigationMob{
+        display:flex;
+        position:sticky;
+        top:0;
+        align-items: center;
+        justify-content:space-between;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        z-index:1;
+        background-color:white;
+    }
+    .optionMob{
+        background-color:white;
+        position:fixed;
+        right:0px;
+        padding:10px;
+        display:flexbox;
+        z-index:5;
+        height:95vh;
+    }
+    .optionMob .option{
+        font-size:3vh;
+        color:#FF7418;
+        text-align:center;
+        padding:10px;
+        
+    }
+    .optionMob .option:hover{
+        cursor:pointer;
+        font-size:3vh;
+        color:#421F3C;
+        text-align:center;
+        padding:10px;
+        background-color: #FF7418;
+    }
+    
+}
+@media screen and (width > 1080) {
+    .optionMob {
+        display:none;
+    }
+}
