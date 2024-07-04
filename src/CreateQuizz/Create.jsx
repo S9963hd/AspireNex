@@ -118,7 +118,7 @@ const ShowOptions = ({ questionIndex, optionIndex, optionValue, handleOptionsCha
                 />
                 <input
                     type="text"
-                    value={optionValue}
+{/*                     value={optionValue} */}
                     onChange={(e) => handleOptionsChange(questionIndex, optionIndex, e.target.value)}
                     style={{ minWidth: '100%', maxWidth: '100%', alignSelf: 'center', justifySelf: 'center' }}
                 />
@@ -159,19 +159,23 @@ const Question = ({ index, question, handleQuestionChange, handleOptionsChange, 
                 type="text"
                 placeholder="Enter the Question"
                 title="Enter Question"
-                value={question.QuizzQuestion}
+{/*                 value={question.QuizzQuestion} */}
                 onChange={(e) => handleQuestionChange(index, e.target.value)}
             />
             <h2>Enter the Number of Options</h2>
             <p>&#x28;Max 4&#x29;</p>
-            <input
-                type="number"
-                value={options}
-                onChange={(e) => setOptions(Number(e.target.value))}
-                min={1}
-                max={4}
-                title="Maximum 4 options can be"
-            />
+            <button
+                type="button"
+                disabled={(options==4)}
+                onClick={() => setOptions(options+1)}
+                className="button1 fa-solid fa-plus"
+            ></button>
+             <button
+                type="button"
+                disabled={(options==1)}
+                onClick={() => setOptions(options-1)}
+                className="button1 fa-solid fa-minus"
+            ></button>
             {optionList()}
         </form>
     );
