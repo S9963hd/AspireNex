@@ -105,7 +105,7 @@ const Create = () => {
                         max={10}
                         required
                     />
-                    <button type="button" className="button" style={{ justifySelf: 'center' }} onClick={()=>{setLoading(!loading);sendQuizzDetails()}}>Submit{(loading)?<i class="fa-solid fa-spinner loading"></i>:""}</button>
+                    <button type="button" className="button" style={{ justifySelf: 'center' }} onClick={()=>{setLoading(true);sendQuizzDetails()}}>Submit&nbsp;{(loading)?<i class="fa-solid fa-spinner loading"></i>:""}</button>
                 </div>
                 <div className="noOfQuestion1">
                     <h2>Set Quiz Name</h2>
