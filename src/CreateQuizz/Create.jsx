@@ -111,7 +111,7 @@ const ShowOptions = ({ questionIndex, optionIndex, optionValue, handleOptionsCha
             <div className="formCheck">
                 <input
                     type="checkbox"
-                    id={`option-${optionIndex}`}
+                    id={`option-${optionIndex}${questionIndex}`}  //adding questionIndex
                     checked={isChecked}
                     onChange={() => handleAnswerCheckboxChange(questionIndex, optionValue)}
                     style={{ minWidth: '50px' }}
