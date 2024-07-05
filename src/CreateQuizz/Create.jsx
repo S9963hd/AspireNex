@@ -132,7 +132,7 @@ const ShowOptions = ({ questionIndex, optionIndex, optionValue, handleOptionsCha
                 <input
                     type="text"
                     onChange={(e) => handleOptionsChange(questionIndex, optionIndex, e.target.value)}
-                    style={{ minWidth: '60%', maxWidth: '75%', alignSelf: 'center', justifySelf: 'center' }}
+                    style={{ minWidth: '60%', maxWidth: '80%', alignSelf: 'center', justifySelf: 'center' }}
                 />
             </div></div>
         </div>
