@@ -185,12 +185,7 @@ a{
     }
     
 }
-@media screen and (width > 1080) {
-    .optionMob {
-        display:none;
-    }
-}
-@media screen and (min-width : 1081px) {
+@media screen and (min-width : 1080px) {
     .optionMob {
         display:none;
     }
