@@ -10,7 +10,7 @@ const Create = () => {
     const [ques, setQues] = useState([]);
     const [quizzname, setQuizzName] = useState('');
     const { login } = useContext(LoginDetails);
-    const[loading,setLoading]=useState(false);
+    const [loading,setLoading]=useState(false);
     function notify(status) {
         if (status === 200) {
             toast.success('Quiz Added Successfully\nRemember! Your data will be erased after 6 hours');
@@ -99,7 +99,6 @@ const Create = () => {
                 <div className="noOfQuestion">
                     <input
                         type="number"
-{/*                         value={questions} */}
                         onChange={(e) => setQuestions(Number(e.target.value))}
                         min={1}
                         max={10}
