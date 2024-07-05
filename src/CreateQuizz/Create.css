@@ -15,7 +15,7 @@
 }
 @media screen and (max-width: 600px) {
   .formCheck input[type="text"] {
-    min-width: 80vw !important;
+    min-width: 60vw !important;
   }
 }
 
