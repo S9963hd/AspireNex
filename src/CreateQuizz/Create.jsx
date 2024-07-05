@@ -120,6 +120,7 @@ const Create = () => {
 const ShowOptions = ({ questionIndex, optionIndex, optionValue, handleOptionsChange, handleAnswerCheckboxChange, isChecked }) => {
     return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{flexWrap:'wrap'}}>
             <div className="formCheck">
                 <input
                     type="checkbox"
@@ -133,7 +134,7 @@ const ShowOptions = ({ questionIndex, optionIndex, optionValue, handleOptionsCha
                     onChange={(e) => handleOptionsChange(questionIndex, optionIndex, e.target.value)}
                     style={{ minWidth: '100%', maxWidth: '100%', alignSelf: 'center', justifySelf: 'center' }}
                 />
-            </div>
+            </div></div>
         </div>
     );
 };
