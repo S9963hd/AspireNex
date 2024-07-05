@@ -13,7 +13,7 @@
     justify-content: space-evenly;
     padding:10px;
 }
-@media screen and (min-width: 480px){
+@media screen and (max-width: 480px){
 .formCheck input[type="text"]{
     min-width:60vw
 }
