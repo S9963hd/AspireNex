@@ -13,11 +13,12 @@
     justify-content: space-evenly;
     padding:10px;
 }
-@media screen and (max-width: 1080px){
-.formCheck input[type="text"]{
-    min-width:60vw
+@media screen and (max-width: 600px) {
+  .formCheck input[type="text"] {
+    min-width: 70vw;
+  }
 }
-}
+
 .noOfQuestion{
     display:flex;
     justify-content: space-evenly;
