@@ -130,7 +130,6 @@ const ShowOptions = ({ questionIndex, optionIndex, optionValue, handleOptionsCha
                 />
                 <input
                     type="text"
-{/*                     value={optionValue} */}
                     onChange={(e) => handleOptionsChange(questionIndex, optionIndex, e.target.value)}
                     style={{ minWidth: '100%', maxWidth: '100%', alignSelf: 'center', justifySelf: 'center' }}
                 />
@@ -171,7 +170,6 @@ const Question = ({ index, question, handleQuestionChange, handleOptionsChange, 
                 type="text"
                 placeholder="Enter the Question"
                 title="Enter Question"
-{/*                 value={question.QuizzQuestion} */}
                 onChange={(e) => handleQuestionChange(index, e.target.value)}
             />
             <h2>Enter the Number of Options</h2>
