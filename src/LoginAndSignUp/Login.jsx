@@ -35,6 +35,7 @@ const Login = () => {
         else if(status==401){
             toast.error("Gmail Not found");
             setLoading(false);
+            setFloading(false);
         }
         else{
             toast.error("Can't Sign Up Try Again");
