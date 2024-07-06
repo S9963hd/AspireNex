@@ -15,11 +15,12 @@ const Login = () => {
     const[email,setEmail]=useState('');
     const[floading,setFloading]=useState(false);
      function retrivepassword(email){
+         console.log("Sending.....")
         axios({
             url:"http://localhost:8010/forgot",
             method:"POST",
             data:{email:email},
-        }).then(res=>notify(res.status)).catch(err=>{console.log("Somthing Wrong");notify(err.response.status)});
+        }).then(res=>{console.log("Sended Successfully.....");notify(res.status)}).catch(err=>{console.log("Somthing Wrong");notify(err.response.status)});
     }
     function notify(status){
         if(status==200){
