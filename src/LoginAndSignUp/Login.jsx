@@ -20,7 +20,7 @@ const Login = () => {
             url:"https://aspirenexlogin.onrender.com/forgot",
             method:"POST",
             data:{email:email},
-        }).then(res=>{console.log("Sended Successfully.....");notify(res.status)}).catch(err=>{console.log("Somthing Wrong")(err.response.status!=undefined)?notify(err.response.status):notify(404)});
+        }).then(res=>{console.log("Sended Successfully.....");notify(res.status)}).catch(err=>{console.log("Somthing Wrong");(err.response.status!=undefined)?notify(err.response.status):notify(404)});
     }
     function notify(status){
         if(status==200){
