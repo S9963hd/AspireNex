@@ -125,7 +125,6 @@ const ShowOptions = ({ questionIndex, optionIndex, optionValue, handleOptionsCha
                 <input
                     type="checkbox"
                     id={`option-${optionIndex}-${questionIndex}`}
-                    checked={isChecked}
                     onChange={() => handleAnswerCheckboxChange(questionIndex, optionValue)}
                     style={{ minWidth: '50px' }}
                 />
