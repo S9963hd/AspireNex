@@ -17,7 +17,7 @@ const Login = () => {
      function retrivepassword(email){
          console.log("Sending.....")
         axios({
-            url:"http://localhost:8010/forgot",
+            url:"https://aspirenexlogin.onrender.com/forgot",
             method:"POST",
             data:{email:email},
         }).then(res=>{console.log("Sended Successfully.....");notify(res.status)}).catch(err=>{console.log("Somthing Wrong")(err.response.status)?notify(err.response.status):notify(404)});
