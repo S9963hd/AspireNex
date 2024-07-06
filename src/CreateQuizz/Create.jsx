@@ -173,7 +173,7 @@ const Question = ({ index, question, handleQuestionChange, handleOptionsChange, 
                 onChange={(e) => handleQuestionChange(index, e.target.value)}
             />
             <h2>Enter the Number of Options</h2>
-            <p>&#x28;Max 4&#x29;</p>
+            <p>&#x28;Max 4&#x29;&nbsp;&nbsp;check the correct answers</p>
             <button
                 type="button"
                 disabled={options === 4}
