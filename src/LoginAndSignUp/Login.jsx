@@ -20,7 +20,7 @@ const Login = () => {
             url:"http://localhost:8010/forgot",
             method:"POST",
             data:{email:email},
-        }).then(res=>{console.log("Sended Successfully.....");notify(res.status)}).catch(err=>{console.log("Somthing Wrong");notify(err.response.status)});
+        }).then(res=>{console.log("Sended Successfully.....");notify(res.status)}).catch(err=>{console.log("Somthing Wrong",err.response.status);notify(err.response.status)});
     }
     function notify(status){
         if(status==200){
