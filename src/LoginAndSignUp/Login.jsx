@@ -13,53 +13,13 @@ const Login = () => {
     const {login,setLogin}=useContext(LoginDetails);
     const[loading,setLoading]=useState(false);
     const[email,setEmail]=useState('');
-    function retrivepassword(email){
+     function retrivepassword(email){
         axios({
-            url:"https://aspirenexlogin.onrender.com/forgot",
+            url:"http://localhost:8010/forgot",
             method:"POST",
             data:{email:email},
-        }).then(res=>{sendEmail(email,res.data.password);notify(201)}).catch(err=>{console.log("Something Wrong");notify(err.response.status)});
+        }).then(res=>notify(res.status)).catch(err=>{console.log("Somthing Wrong");notify(err.response.status)});
     }
-
-const sendEmail = async (email, password) => {
-    const userId = '9iY9SjsWlSQiP-Huk';
-    const serviceID = 'service_dr4pjjf';
-    const templateID = 'template_1mbn28y';
-    const accessToken = '13hGuhoCY_JOSCAuzf3wi';
-
-    const templateParams = {
-        to_name: 'User',
-        from_name: 'Sanjay',
-        message: `The Password is: ${password}`,
-        to_email: email,
-        from_email: 'sanjaysoman46@gmail.com'
-    };
-
-    const url = `https://api.emailjs.com/api/v1.0/email/send`;
-
-    const data = {
-        service_id: serviceID,
-        template_id: templateID,
-        user_id: userId,
-        template_params: templateParams,
-        accessToken: accessToken
-    };
-
-    try {
-        const response = await axios.post(url, data, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        console.log('Email sent:', response.data);
-        return true;
-    } catch (error) {
-        console.error('Failed to send email:', error.response ? error.response.data : error.message);
-        return false;
-    }
-};
-
-    
     function notify(status){
         if(status==200){
             toast.success('Login SuccessFully');
