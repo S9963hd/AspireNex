@@ -5,7 +5,7 @@ import { LoginDetails } from '../App';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-    function notify(status) {
+    function notify(status,setLoading) {
         if (status === 200) {
             toast.success('Quiz Added Successfully\nRemember! Your data will be erased after 6 hours');
             setLoading(false);
@@ -46,14 +46,14 @@ const Create = () => {
         })
             .then(res => { 
                 console.log("Data is Saved", res); 
-                notify(res.status); 
+                notify(res.status,setLoading); 
             })
             .catch(err => {
                 console.log("Error: ", err);
                 if (err.response) {
-                    notify(err.response.status);
+                    notify(err.response.status,setLoading);
                 } else {
-                    notify(500);
+                    notify(500,setLoading);
                 }
             });
     };
@@ -74,13 +74,13 @@ const Create = () => {
         const updatedQues = [...ques];
         const answers = updatedQues[questionIndex].QuizzAnswer;
         if(answer.length==0)
-            notify(201);
+            notify(201,'');
         if (answers.includes(optionValue)) {
             updatedQues[questionIndex].QuizzAnswer = answers.filter(answer => answer !== optionValue);
         } else {
             updatedQues[questionIndex].QuizzAnswer = [...answers, optionValue];
         }
-        setQues(updatedQues);
+        setQues(updatedQues,setLoading);
     };
 
     const quizzQuestions = () => {
