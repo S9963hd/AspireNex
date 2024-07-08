@@ -20,6 +20,9 @@ const Create = () => {
             toast.warning('Quiz ID Already Found, Try Different');
             setLoading(false);
         } 
+        else if(status==201){
+            toast.warning('Fill Something in Checkbox');
+        }
         else {
             toast.error("Can't Add, Try Again");
             setLoading(false);
@@ -69,6 +72,8 @@ const Create = () => {
     const handleAnswerCheckboxChange = (questionIndex, optionValue) => {
         const updatedQues = [...ques];
         const answers = updatedQues[questionIndex].QuizzAnswer;
+        if(answer.length==0)
+            notify(201);
         if (answers.includes(optionValue)) {
             updatedQues[questionIndex].QuizzAnswer = answers.filter(answer => answer !== optionValue);
         } else {
