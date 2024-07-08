@@ -5,12 +5,6 @@ import { LoginDetails } from '../App';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Create = () => {
-    const [questions, setQuestions] = useState(1);
-    const [ques, setQues] = useState([]);
-    const [quizzname, setQuizzName] = useState('');
-    const { login } = useContext(LoginDetails);
-    const [loading,setLoading]=useState(false);
     function notify(status) {
         if (status === 200) {
             toast.success('Quiz Added Successfully\nRemember! Your data will be erased after 6 hours');
@@ -28,6 +22,13 @@ const Create = () => {
             setLoading(false);
         }
     }
+
+const Create = () => {
+    const [questions, setQuestions] = useState(1);
+    const [ques, setQues] = useState([]);
+    const [quizzname, setQuizzName] = useState('');
+    const { login } = useContext(LoginDetails);
+    const [loading,setLoading]=useState(false);
 
     useEffect(() => {
         if (questions > ques.length) {
