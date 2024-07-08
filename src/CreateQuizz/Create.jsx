@@ -73,7 +73,7 @@ const Create = () => {
     const handleAnswerCheckboxChange = (questionIndex, optionValue) => {
         const updatedQues = [...ques];
         const answers = updatedQues[questionIndex].QuizzAnswer;
-        if(answers.length==0)
+        if(optionValue.length==0)
             notify(201,'');
         if (answers.includes(optionValue)) {
             updatedQues[questionIndex].QuizzAnswer = answers.filter(answer => answer !== optionValue);
