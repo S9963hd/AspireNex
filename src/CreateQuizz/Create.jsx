@@ -75,7 +75,7 @@ const Create = () => {
         const answers = updatedQues[questionIndex].QuizzAnswer;
         if(optionValue.length==0)
             notify(201,'');
-        if (answers.includes(optionValue)) {
+        else if (answers.includes(optionValue)) {
             updatedQues[questionIndex].QuizzAnswer = answers.filter(answer => answer !== optionValue);
         } else {
             updatedQues[questionIndex].QuizzAnswer = [...answers, optionValue];
