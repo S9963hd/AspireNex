@@ -77,10 +77,11 @@ const Create = () => {
             notify(201,'');
         else if (answers.includes(optionValue)) {
             updatedQues[questionIndex].QuizzAnswer = answers.filter(answer => answer !== optionValue);
+             setQues(updatedQues,setLoading);
         } else {
             updatedQues[questionIndex].QuizzAnswer = [...answers, optionValue];
+             setQues(updatedQues,setLoading);
         }
-        setQues(updatedQues,setLoading);
     };
 
     const quizzQuestions = () => {
